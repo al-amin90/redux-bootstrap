@@ -1,3 +1,4 @@
+import { Button } from './components/ui/button';
 import { decrement, increment } from './redux/features/counter/counterSlice';
 import { useAppDispatch, useAppSelector } from './redux/hook';
 
@@ -20,7 +21,7 @@ return (
         justifyContent: 'center',
         alignItems: 'center',
         minHeight: '100vh',
-        marginLeft: '50rem',
+        marginLeft: '8rem',
     }}>
         <div style={{
             display: 'inline-block',
@@ -33,54 +34,21 @@ return (
         }}>
             <h2>Cool Counter</h2>
             <div style={{ fontSize: '2rem', margin: '1rem 0' }}>{count}</div>
-            <button
-                style={{
-                    margin: '0 0.5rem',
-                    padding: '0.5rem 1rem',
-                    fontSize: '1rem',
-                    borderRadius: '0.5rem',
-                    border: 'none',
-                    background: '#fff',
-                    color: '#6e8efb',
-                    cursor: 'pointer',
-                    fontWeight: 'bold'
-                }}
+            <Button
                 onClick={() => handleDecrement()}
             >
                 - Decrement
-            </button>
-            <button
-                style={{
-                    margin: '0 0.5rem',
-                    padding: '0.5rem 1rem',
-                    fontSize: '1rem',
-                    borderRadius: '0.5rem',
-                    border: 'none',
-                    background: '#fff',
-                    color: '#a777e3',
-                    cursor: 'pointer',
-                    fontWeight: 'bold'
-                }}
+            </Button>
+            <Button
                 onClick={() => handleIncrement(5)}
             >
                 + Increment 5
-            </button>
-            <button
-                style={{
-                    margin: '0 0.5rem',
-                    padding: '0.5rem 1rem',
-                    fontSize: '1rem',
-                    borderRadius: '0.5rem',
-                    border: 'none',
-                    background: '#fff',
-                    color: '#a777e3',
-                    cursor: 'pointer',
-                    fontWeight: 'bold'
-                }}
+            </Button>
+            <Button
                 onClick={() => handleIncrement(1)}
             >
                 + Increment 
-            </button>
+            </Button>
         </div>
     </div>
 );
