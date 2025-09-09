@@ -1,41 +1,28 @@
-import React, { useState } from "react";
+import TaskCard from "@/components/module/tasks/TaskCard";
+import { selectFilter, selectTasks } from "@/redux/features/task/taskSlice";
+import { useAppSelector } from "@/redux/hook";
+import React from "react";
 
 const Task: React.FC = () => {
-    const [task, setTask] = useState("");
-    const [tasks, setTasks] = useState<string[]>([]);
+  //   const [tasks, setTasks] = useState<string[]>([]);
 
-    const handleAddTask = () => {
-        if (task.trim()) {
-            setTasks([...tasks, task]);
-            setTask("");
-        }
-    };
+  const tasks = useAppSelector(selectTasks);
+  const filter = useAppSelector(selectFilter);
 
-    return (
-        <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded shadow">
-            <h2 className="text-2xl font-bold mb-4">Task List</h2>
-            <div className="flex mb-4">
-                <input
-                    type="text"
-                    className="flex-1 border border-gray-300 rounded px-3 py-2 mr-2 focus:outline-none"
-                    placeholder="Enter a task"
-                    value={task}
-                    onChange={(e) => setTask(e.target.value)}
-                />
-                <button
-                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                    onClick={handleAddTask}
-                >
-                    Add
-                </button>
-            </div>
-            <ul className="list-disc pl-5">
-                {tasks.map((t, idx) => (
-                    <li key={idx} className="py-1">{t}</li>
-                ))}
-            </ul>
-        </div>
-    );
+  console.log("tasks", tasks);
+  console.log("filter", filter);
+
+  return (
+    <div className="mx-auto rounded shadow">
+      <h2 className="text-2xl font-bold mt-8">Task List</h2>
+      <div className=" mt-5 space-y-5">
+        {tasks.map((task) => (
+          <TaskCard task={task} />
+        ))}
+      </div>
+      <ul className="list-disc pl-5"></ul>
+    </div>
+  );
 };
 
 export default Task;
