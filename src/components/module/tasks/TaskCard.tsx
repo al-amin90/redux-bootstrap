@@ -11,6 +11,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { ITask } from "@/types";
+import { cn } from "@/lib/utils";
 
 interface TaskCardProps {
   task: ITask;
@@ -30,14 +31,11 @@ const TaskCard = ({ task, onToggleComplete, onDelete }: TaskCardProps) => {
           >
             {task.title}
           </CardTitle>
-          <Badge
-            variant={
-              task.priority === "high"
-                ? "destructive"
-                : task.priority === "medium"
-                ? "default"
-                : "secondary"
-            }
+          <Badge className={cn('text-md rounded-4xl text-white', {
+            'bg-green-500': task.priority === 'high',
+            'bg-red-500': task.priority === 'low',
+            'bg-yellow-500': task.priority === 'medium',
+          })}
           >
             {task.priority}
           </Badge>

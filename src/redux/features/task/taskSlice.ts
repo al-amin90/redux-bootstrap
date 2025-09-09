@@ -18,12 +18,20 @@ const initialState : InitialState = {
       priority: "high",
     },
     {
-      id: "233",
+      id: "233w",
       title: "Demo Task",
       description: "This is a demo task for testing purposes.",
       dueDate: "2024-07-01",
       isCompleted: false,
-      priority: "high",
+      priority: "low",
+    },
+    {
+      id: "233s",
+      title: "Demo Task",
+      description: "This is a demo task for testing purposes.",
+      dueDate: "2024-07-01",
+      isCompleted: false,
+      priority: "medium",
     },
   ],
   filter: 'all'
